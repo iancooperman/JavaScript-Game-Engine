@@ -1,0 +1,95 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Final Project </title>
+<meta charset="utf-8">
+
+<!-- Scripts -->
+<script src="models.js"></script>
+<script src="transform.js"></script>
+<script src="gl-matrix-min.js"></script>
+<script src="webgl-utils.js"></script>
+<script src="render-utils.js"></script>
+<script src="game-component.js"></script>
+<script src="lights.js"></script>
+<script src="rotator.js"></script>
+<script src="camera.js"></script>
+<script src="mesh-renderer.js"></script>
+<script src="game-object.js"></script>
+<script src="rendering-engine.js"></script>
+<script src="final.js"></script>
+
+</head>
+
+<script id="vertex-shader" type="nonjs">
+
+attribute vec3 a_position;
+attribute vec3 a_normal;
+uniform mat4 u_modelMatrix;
+uniform mat4 u_viewProjectionMatrix;
+uniform vec3 u_color;
+
+// lighting
+uniform vec3 u_lampLightPosition;
+
+varying vec3 v_color;
+varying vec3 v_normal;
+varying vec3 v_surfaceToLampLight;
+
+void main() {
+	v_color = u_color;
+	v_normal = (u_modelMatrix * vec4(a_normal, 0.0)).xyz;
+	// v_normal = a_normal;
+
+	vec4 transformedSurfacePosition = u_modelMatrix * vec4(a_position, 1.0);
+
+	v_surfaceToLampLight = u_lampLightPosition - transformedSurfacePosition.xyz;
+
+	gl_Position = u_viewProjectionMatrix * transformedSurfacePosition;
+}
+
+</script>
+
+<script id="fragment-shader" type="nonjs">
+
+precision mediump float;
+
+varying vec3 v_color;
+varying vec3 v_normal;
+varying vec3 v_surfaceToLampLight;
+
+void main() {
+	float lampLightDot = dot(normalize(v_normal), normalize(v_surfaceToLampLight));
+	float lampLightResultX = v_color.x/255.0 * max(lampLightDot, 0.0);
+	float lampLightResultY = v_color.y/255.0 * max(lampLightDot, 0.0);
+	float lampLightResultZ = v_color.z/255.0 * max(lampLightDot, 0.0);
+
+
+	// gl_FragColor = vec4(0.0, 0.0, lampLightDot, 1.0);
+	// gl_FragColor = 10.0 * vec4(lampLightResultX, lampLightResultY, lampLightResultZ, 1.0);
+
+	// uncomment for fullbright
+	gl_FragColor = vec4(v_color.xyz/255.0, 1.0); // return whatever color the mesh is supposed to be
+}
+
+</script>
+
+
+<body onload="startup();">
+<form action="">
+	Animate <input type="checkbox" checked id="animationBox">
+</form>
+
+<canvas id="gl-canvas" width="800" height="800"></canvas>
+<form id="input_form">
+<fieldset>
+	Name: Ian Cooperman <br/>
+	Student ID: 36747912 <br/>
+	Name: N/A<br/>
+	Student ID: N/A<br/>
+</fieldset>
+</form>
+
+
+</body>
+</html>
