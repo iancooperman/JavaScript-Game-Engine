@@ -29,17 +29,22 @@
 - [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
-Write about 1-2 paragraphs describing the purpose of your project.
+The purpose of this project was twofold:
+1. Learn the basics of 3d rendering/WebGL.
+2. Implement a basic scene graph structure, like that seen in Unity.
+
+TODO: Explain rendering at a high level.
+TODO: Explain scene graphs at a high level.
+
+The core of this engine starts with `GameObject`, a class that represent a single object within the scene. Each `GameObject` houses a collection of `GameComponent`s, which define the behavior of the object (e.g. movement).
+
+For more information on scene graphs, [this video](https://www.youtube.com/watch?v=rXoGR5pobG4) would be a good place to start. [This article](https://webglfundamentals.org/webgl/lessons/webgl-scene-graph.html) on [webglfundamentals.org](https://webglfundamentals.org) is also great if you're more familiar with matrix math.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
+None! This was all done in vanilla JavaScript!
 
 ### Installing
 A step by step series of examples that tell you how to get a development env running.
@@ -62,7 +67,7 @@ End with an example of getting some data out of the system or using it for a lit
 Add notes about how to use the system.
 
 ## 🚀 Deployment <a name = "deployment"></a>
-Add additional notes about how to deploy this on a live system.
+The demo scene is simply being hosted through GitHub Pages, which is reliant on there being a file named `index.html` in your repository.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [MongoDB](https://www.mongodb.com/) - Database
@@ -75,5 +80,5 @@ Add additional notes about how to deploy this on a live system.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
 - Hat tip to anyone whose code was used
-- Inspiration
-- References
+- TODO: Find youtube series and repo this project took inspiration from
+- [webglfundamentals.org](https://webglfundamentals.org)
