@@ -61,6 +61,24 @@ And repeat
 until finished
 ```
 
+1. Download the repo onto your computer.
+2. Create an HTML file named `index.html`.
+3. Include all the relevant scripts in `index.html`:
+```HTML
+<script src="models.js"></script>
+<script src="transform.js"></script>
+<script src="gl-matrix-min.js"></script>
+<script src="webgl-utils.js"></script>
+<script src="render-utils.js"></script>
+<script src="game-component.js"></script>
+<script src="lights.js"></script>
+<script src="rotator.js"></script>
+<script src="camera.js"></script>
+<script src="mesh-renderer.js"></script>
+<script src="game-object.js"></script>
+<script src="rendering-engine.js"></script>
+```
+
 End with an example of getting some data out of the system or using it for a little demo.
 
 ## 🎈 Usage <a name="usage"></a>
