@@ -47,20 +47,6 @@ These instructions will get you a copy of the project up and running on your loc
 None! This was all done in vanilla JavaScript!
 
 ### Installing
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
 1. Download the repo onto your computer.
 2. Create an HTML file named `index.html`.
 3. Include all the relevant scripts in `index.html`:
@@ -78,8 +64,8 @@ until finished
 <script src="game-object.js"></script>
 <script src="rendering-engine.js"></script>
 ```
-
-End with an example of getting some data out of the system or using it for a little demo.
+4. Open `index.html` in your browser.
+![image](https://github.com/iancooperman/JavaScript-Game-Engine/assets/34320199/f7e035b7-a01f-4a6e-a46f-e736cb6683d6)
 
 ## 🎈 Usage <a name="usage"></a>
 Add notes about how to use the system.
