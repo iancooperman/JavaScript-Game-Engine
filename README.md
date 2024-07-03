@@ -171,6 +171,7 @@ The demo scene is simply being hosted through GitHub Pages, which is reliant on 
 ## ⛏️ Built Using <a name = "built_using"></a>
 - [webgl-utils.js, by Google]() - Various utility functions for WebGL
 - [glMatrix](https://glmatrix.net), by [@toji](https://github.com/toji) and [@sinisterchipmunk](https://github.com/sinisterchipmunk) - High-performance matrix math library
+- models.js by [Shuang Zhao](https://shuangz.com)? - Library for instantiating basic 3d shapes
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@iancooperman](https://github.com/iancooperman) - Implementation
