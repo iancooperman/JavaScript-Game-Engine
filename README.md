@@ -54,10 +54,11 @@ None! This was all done in vanilla JavaScript!
 ![image](https://github.com/iancooperman/JavaScript-Game-Engine/assets/34320199/f7e035b7-a01f-4a6e-a46f-e736cb6683d6)
 
 ## 🎈 Usage <a name="usage"></a>
-To use the engine on your own webpage, complete the following steps:
 
-1. Include all the relevant scripts in the HTML file your page corresponds to.
+### Boilerplate
+I would highly recommend just using the included `index.html` as boilerplate, but if you're daring enough, you can include all the relevant scripts in your own HTML file.
 ```HTML
+<!-- Scripts -->
 <script src="models.js"></script>
 <script src="transform.js"></script>
 <script src="gl-matrix-min.js"></script>
@@ -70,7 +71,82 @@ To use the engine on your own webpage, complete the following steps:
 <script src="mesh-renderer.js"></script>
 <script src="game-object.js"></script>
 <script src="rendering-engine.js"></script>
+<script src="final.js"></script>
+
+<script id="vertex-shader" type="nonjs">
+
+attribute vec3 a_position;
+attribute vec3 a_normal;
+uniform mat4 u_modelMatrix;
+uniform mat4 u_viewProjectionMatrix;
+uniform vec3 u_color;
+
+// lighting
+uniform vec3 u_lampLightPosition;
+
+varying vec3 v_color;
+varying vec3 v_normal;
+varying vec3 v_surfaceToLampLight;
+
+void main() {
+	v_color = u_color;
+	v_normal = (u_modelMatrix * vec4(a_normal, 0.0)).xyz;
+	// v_normal = a_normal;
+
+	vec4 transformedSurfacePosition = u_modelMatrix * vec4(a_position, 1.0);
+
+	v_surfaceToLampLight = u_lampLightPosition - transformedSurfacePosition.xyz;
+
+	gl_Position = u_viewProjectionMatrix * transformedSurfacePosition;
+}
+
+</script>
+
+<script id="fragment-shader" type="nonjs">
+
+precision mediump float;
+
+varying vec3 v_color;
+varying vec3 v_normal;
+varying vec3 v_surfaceToLampLight;
+
+void main() {
+	float lampLightDot = dot(normalize(v_normal), normalize(v_surfaceToLampLight));
+	float lampLightResultX = v_color.x/255.0 * max(lampLightDot, 0.0);
+	float lampLightResultY = v_color.y/255.0 * max(lampLightDot, 0.0);
+	float lampLightResultZ = v_color.z/255.0 * max(lampLightDot, 0.0);
+
+
+	// gl_FragColor = vec4(0.0, 0.0, lampLightDot, 1.0);
+	// gl_FragColor = 10.0 * vec4(lampLightResultX, lampLightResultY, lampLightResultZ, 1.0);
+
+	// uncomment for fullbright
+	gl_FragColor = vec4(v_color.xyz/255.0, 1.0);
+}
+
+</script>
 ```
+
+Be sure to include a canvas to draw to somewhere within your webpage.
+```HTML
+<canvas id="gl-canvas" width="800" height="800"></canvas>
+```
+
+From there, you'll need to initialize some core objects, including the rendering engine, camera, and scene root, in another script.
+```JS
+renderingEngine = new RenderingEngine("gl-canvas");
+
+  // Camera
+  var camera = new GameObject();
+  camera.addComponent(new Camera());
+  renderingEngine.addCamera(camera);
+  camera.transform.translate(0, -1.5, -12);
+  camera.transform.rotate("x", radians(10));
+
+  // scene Base
+  var sceneBase = new GameObject();
+```
+
 
 ## 🚀 Deployment <a name = "deployment"></a>
 The demo scene is simply being hosted through GitHub Pages, which is reliant on there being a file named `index.html` in your repository.
