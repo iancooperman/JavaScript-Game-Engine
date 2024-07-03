@@ -29,14 +29,11 @@
 - [Acknowledgments](#acknowledgement)
 
 ## 🧐 About <a name = "about"></a>
-The purpose of this project was twofold:
-1. Learn the basics of 3d rendering/WebGL.
-2. Implement a basic scene graph structure, like that seen in Unity.
+1. **Learn the basics of 3D rendering/WebGL**: WebGL (Web Graphics Library) is a JavaScript API for rendering high-performance interactive 3D and 2D graphics within any compatible web browser without the use of plug-ins1. WebGL programs consist of control code written in JavaScript and shader code that is executed on a computer’s Graphics Processing Unit (GPU)12. This project was an opportunity to delve into the basics of WebGL and understand how to use it for 3D rendering.
 
-TODO: Explain rendering at a high level.
-TODO: Explain scene graphs at a high level.
+2. **Implement a basic scene graph structure, like that seen in Unity**: Scene graphs are a general data structure commonly used by vector-based graphics editing applications and modern computer games, which arranges the logical and often spatial representation of a graphical scene3. They consist of a number of scene nodes, kept together in a tree-like structure - each node has a parent node, and a number of child nodes4. This project aimed to implement a similar structure.
 
-The core of this engine starts with `GameObject`, a class that represent a single object within the scene. Each `GameObject` houses a collection of `GameComponent`s, which define the behavior of the object (e.g. movement).
+The core of this engine starts with `GameObject`, a class that represent a single object within the scene. Each `GameObject` houses a collection of `GameComponent`s, which define the behavior of the object (e.g. movement). `GameComponent`s are the functional pieces of every `GameObject`. They contain properties which you can edit to define the behavior of a `GameObject`.
 
 For more information on scene graphs, [this video](https://www.youtube.com/watch?v=rXoGR5pobG4) would be a good place to start. [This article](https://webglfundamentals.org/webgl/lessons/webgl-scene-graph.html) on [webglfundamentals.org](https://webglfundamentals.org) is also great if you're more familiar with matrix math.
 
