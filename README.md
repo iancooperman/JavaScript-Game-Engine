@@ -83,6 +83,5 @@ The demo scene is simply being hosted through GitHub Pages, which is reliant on 
 - [@iancooperman](https://github.com/iancooperman) - Implementation
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
-- Hat tip to anyone whose code was used
 - [@BennyQBD](https://github.com/BennyQBD)'s [YouTube tutorials](https://youtu.be/L19dBX53M5M?list=PLEETnX-uPtBXP_B2yupUKlflXBznWIlL5) on making a Java-based 3d engine were a major source of inspiration for my own engine's structure.
 - [webglfundamentals.org](https://webglfundamentals.org)
