@@ -48,8 +48,15 @@ None! This was all done in vanilla JavaScript!
 
 ### Installing
 1. Download the repo onto your computer.
-2. Create an HTML file named `index.html`.
-3. Include all the relevant scripts in `index.html`:
+2. Open `index.html` in your browser.
+3. You should see a page similar to the demo page linked above.
+
+![image](https://github.com/iancooperman/JavaScript-Game-Engine/assets/34320199/f7e035b7-a01f-4a6e-a46f-e736cb6683d6)
+
+## 🎈 Usage <a name="usage"></a>
+To use the engine on your own webpage, complete the following steps:
+
+1. Include all the relevant scripts in the HTML file your page corresponds to.
 ```HTML
 <script src="models.js"></script>
 <script src="transform.js"></script>
@@ -64,20 +71,13 @@ None! This was all done in vanilla JavaScript!
 <script src="game-object.js"></script>
 <script src="rendering-engine.js"></script>
 ```
-4. Open `index.html` in your browser.
-![image](https://github.com/iancooperman/JavaScript-Game-Engine/assets/34320199/f7e035b7-a01f-4a6e-a46f-e736cb6683d6)
-
-## 🎈 Usage <a name="usage"></a>
-Add notes about how to use the system.
 
 ## 🚀 Deployment <a name = "deployment"></a>
 The demo scene is simply being hosted through GitHub Pages, which is reliant on there being a file named `index.html` in your repository.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [webgl-utils.js, by Google]() - Various utility functions for WebGL
+- [glMatrix](https://glmatrix.net), by [@toji](https://github.com/toji) and [@sinisterchipmunk](https://github.com/sinisterchipmunk) - High-performance matrix math library
 
 ## ✍️ Authors <a name = "authors"></a>
 - [@iancooperman](https://github.com/iancooperman) - Implementation
