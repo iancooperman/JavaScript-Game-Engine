@@ -147,6 +147,23 @@ renderingEngine = new RenderingEngine("gl-canvas");
   var sceneBase = new GameObject();
 ```
 
+If you're familiar with Unity at all, the rest is pretty straight-forward. This example from `final.js` demonstrates how a tree-like model can be instantiated and rendered.
+```JS
+var tree = new GameObject();
+tree.addComponent(new MeshRenderer(uvCylinder(0.1, 0.2), [29, 30, 0]));
+// tree1.transform.translate(0.3, 0.15, 0);
+tree.transform.rotate("x", radians(90));
+
+treeBrush = new GameObject();
+treeBrush.addComponent(new MeshRenderer(uvCone(), [7, 56, 22]));
+treeBrush.transform.translate(0, 0, -0.4);
+treeBrush.transform.scale(0.5, 0.5, 0.6);
+treeBrush.transform.rotate("x", radians(180));
+
+tree.addChild(treeBrush);
+
+renderingEngine.addToSceneGraph(tree);
+```
 
 ## 🚀 Deployment <a name = "deployment"></a>
 The demo scene is simply being hosted through GitHub Pages, which is reliant on there being a file named `index.html` in your repository.
